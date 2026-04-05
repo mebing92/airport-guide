@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>보안검색 안내</title>
+
+<style>
+body { font-family: Arial; background:#f5f7fa; margin:0; text-align:center; }
+
+.header { background:#1f4e79; color:white; padding:20px; font-size:22px; }
+
+.lang {
+    display:flex; justify-content:center; gap:10px; padding:10px;
+}
+
+.lang a {
+    padding:8px 12px; background:white; border-radius:10px;
+    text-decoration:none; color:#1f4e79; font-weight:bold;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+.urgent {
+    background:#ff4d4d; color:white;
+    padding:20px; margin:15px; border-radius:15px;
+    line-height:1.6;
+}
+
+.card {
+    background:white; margin:15px;
+    padding:20px; border-radius:15px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.button {
+    display:block;
+    background:#2d89ef;
+    color:white;
+    padding:22px;
+    margin:12px 0;
+    border-radius:15px;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:bold;
+    transition: all 0.15s ease;
+}
+
+.button:hover { background:#1f6fd1; }
+
+.button:active {
+    transform: scale(0.96);
+    background:#1f6fd1;
+}
+
+.desc { font-size:14px; margin-top:5px; }
+
+.time {
+    background:#fff3cd;
+    padding:12px;
+    margin-top:8px;
+    border-radius:10px;
+    font-size:14px;
+    color:black;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">🚫 액체류 반입 제한</div>
+
+<div class="lang">
+<a href="index.html">🇰🇷 한국어</a>
+<a href="index_en.html">🇺🇸 EN</a>
+<a href="index_jp.html">🇯🇵 日本語</a>
+<a href="index_cn.html">🇨🇳 中文</a>
+</div>
+
+<div class="urgent">
+🚨 출발장을 나갔다가 다시 돌아올 때에는 반드시 보안검색을 다시 받아야 합니다<br><br>
+🔁 줄을 서지 말고 <b>분홍색 라인</b>을 따라 이동<br>
+🚶‍♂️ <b>우선검색대에서 대기</b><br>
+⚠️ 미이행 시 탑승 제한
+</div>
+
+<div class="card">
+<p style="font-weight:bold;">처리 방법을 선택해 주세요</p>
+
+<a class="button" href="baggage.html">
+🧳 수하물 위탁
+<div class="time">
+⏱ 탑승 50분 전 이후에는 위탁이 어려울 수 있습니다<br>
+👉 시간이 부족할 경우 보안검색요원에게 문의해 주세요
+</div>
+</a>
+
+<a class="button" href="bottle.html">
+🧴 공병 구매
+<div class="desc">
+100ml 이하 용기 구매 후 나누어 담으면 기내 반입 가능
+</div>
+</a>
+
+<a class="button" href="storage.html">
+📦 보관소 이용
+</a>
+
+</div>
+
+</body>
+</html>

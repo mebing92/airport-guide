@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>保安検査案内</title>
+
+<style>
+body { font-family: Arial; background:#f5f7fa; margin:0; text-align:center; }
+.header { background:#1f4e79; color:white; padding:20px; font-size:22px; }
+
+.lang { display:flex; justify-content:center; gap:10px; padding:10px; }
+
+.lang a {
+    padding:8px 12px; background:white; border-radius:10px;
+    text-decoration:none; color:#1f4e79; font-weight:bold;
+}
+
+.urgent {
+    background:#ff4d4d; color:white;
+    padding:20px; margin:15px; border-radius:15px;
+}
+
+.card { background:white; margin:15px; padding:20px; border-radius:15px; }
+
+.button {
+    display:block;
+    background:#2d89ef;
+    color:white;
+    padding:22px;
+    margin:12px 0;
+    border-radius:15px;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:bold;
+    transition: all 0.15s ease;
+}
+
+.button:hover { background:#1f6fd1; }
+
+.button:active {
+    transform: scale(0.96);
+    background:#1f6fd1;
+}
+
+.desc { font-size:14px; margin-top:5px; }
+
+.time {
+    background:#fff3cd;
+    padding:12px;
+    margin-top:8px;
+    border-radius:10px;
+    font-size:14px;
+    color:black;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">🚫 液体類の持ち込み制限</div>
+
+<div class="lang">
+<a href="index.html">🇰🇷 KR</a>
+<a href="index_en.html">🇺🇸 EN</a>
+<a href="index_jp.html">🇯🇵 JP</a>
+<a href="index_cn.html">🇨🇳 CN</a>
+</div>
+
+<div class="urgent">
+🚨 出発エリアを出た後に戻る場合は再度保安検査が必要です<br><br>
+🔁 ピンクラインに従って移動（並ばないでください）<br>
+🚶 優先検査レーンで待機<br>
+⚠️ 搭乗できない可能性があります
+</div>
+
+<div class="card">
+<p style="font-weight:bold;">方法を選択してください</p>
+
+<a class="button" href="baggage_jp.html">
+🧳 受託手荷物
+<div class="time">
+⏱ 出発50分前以降は預け入れが難しい場合があります<br>
+👉 係員にお尋ねください
+</div>
+</a>
+
+<a class="button" href="bottle_jp.html">
+🧴 容器購入
+<div class="desc">
+100ml以下の容器に移し替え可能
+</div>
+</a>
+
+<a class="button" href="storage_jp.html">
+📦 保管サービス
+</a>
+
+</div>
+
+</body>
+</html>
