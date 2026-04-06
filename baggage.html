@@ -27,19 +27,15 @@ body {
   padding: 16px;
   border-radius: 16px;
   font-size: 14px;
+  line-height: 1.6;
 }
 
-/* 경고 카드 */
+/* 경고 */
 .warn {
   background: #f8dede;
 }
 
-/* 주의 카드 */
-.caution {
-  background: #efe2c6;
-}
-
-/* 강조 행동 버튼 */
+/* 행동 강조 */
 .action {
   background: #ff5c5c;
   color: white;
@@ -59,15 +55,16 @@ body {
   line-height: 1.8;
 }
 
-/* 뒤로가기 */
+/* 돌아가기 버튼 */
 .back {
   display: inline-block;
-  margin: 20px;
-  padding: 12px 20px;
-  background: #ddd;
-  border-radius: 12px;
+  margin: 24px;
+  padding: 14px 24px;
+  background: #2f5d8c;
+  color: white;
+  border-radius: 14px;
   text-decoration: none;
-  color: #333;
+  font-size: 15px;
 }
 </style>
 </head>
@@ -76,19 +73,19 @@ body {
 
 <div class="title">🧳 수하물 위탁 안내</div>
 
-<!-- 요금 안내 -->
+<!-- 요금 -->
 <div class="card warn">
   💰 추가요금이 발생할 수 있습니다<br>
   👉 요금은 항공사 체크인 카운터에 문의하세요
 </div>
 
-<!-- 재위탁 불가 -->
+<!-- 재위탁 -->
 <div class="card warn">
   ❌ 이미 위탁한 수하물은 다시 꺼낼 수 없습니다<br>
   👉 새로운 수하물로 다시 위탁해야 합니다
 </div>
 
-<!-- 행동 유도 -->
+<!-- 이용 방법 (핵심) -->
 <div class="card action">
   📍 이용 방법<br><br>
   ✈️ 항공사 체크인 카운터 이용 (1층)<br>
