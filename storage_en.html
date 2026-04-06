@@ -6,126 +6,69 @@
 <title>Storage Service</title>
 
 <style>
-body {
-    font-family: Arial;
-    text-align: center;
-    background: #f5f7fa;
-    margin: 0;
+body { font-family: Arial; margin:0; background:#f5f7fa; text-align:center; }
+.title { background:#2f5d8c; color:white; padding:18px; font-size:20px; }
+.card { background:white; margin:15px; padding:18px; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.08);}
+.alert { background:#f8d7da; padding:15px; margin:15px; border-radius:15px; font-size:14px;}
+.info { background:#fff3cd; padding:15px; margin:15px; border-radius:15px; font-size:14px;}
+
+@keyframes softBlink {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+.highlight-action {
+  margin-top:10px;
+  padding:12px;
+  background:#fff3cd;
+  border-radius:12px;
+  font-weight:bold;
+  animation: softBlink 2s infinite;
 }
 
-.header {
-    background:#1f4e79;
-    color:white;
-    padding:20px;
-    font-size:22px;
-}
-
-.warning {
-    background:#ffe5e5;
-    margin:15px;
-    padding:20px;
-    border-radius:15px;
-    font-size:16px;
-    line-height:1.6;
-    font-weight:bold;
-}
-
-.info {
-    background:#fff3cd;
-    margin:15px;
-    padding:18px;
-    border-radius:15px;
-    font-size:15px;
-}
-
-.action {
-    background:#ff4d4d;
-    color:white;
-    padding:18px;
-    margin:15px;
-    border-radius:15px;
-    font-weight:bold;
-}
-
-.card {
-    background: white;
-    border-radius: 15px;
-    padding: 15px;
-    margin: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-img {
-    width: 100%;
-    border-radius: 10px;
-    margin-top: 10px;
-}
-
-.label {
-    font-size:14px;
-    font-weight:bold;
-    color:#1f4e79;
-    margin-top:10px;
-}
-
-.back {
-    display: block;
-    margin: 20px;
-    color: #2d89ef;
-    text-decoration: none;
-    font-size: 18px;
-}
+img { width:100%; border-radius:12px; margin-top:10px;}
+.back { display:block; margin:20px; text-decoration:none; color:#6c63ff;}
 </style>
 </head>
 
 <body>
 
-<div class="header">📦 Storage Service</div>
+<div class="title">📦 Storage Service</div>
 
-<!-- ⚠️ Warning -->
-<div class="warning">
+<div class="alert">
 ⚠️ Storage service is paid<br>
-⚠️ Round trip may take 20–30 minutes<br>
-⚠️ Located near Domestic Arrivals area
+⚠️ Round trip takes about 20~30 minutes<br>
+⚠️ Located near domestic arrival area
 </div>
 
-<!-- 💡 Info -->
 <div class="info">
 💡 Recommended only if you have enough time<br>
-👉 If you are in a hurry, consider other options
+👉 If you are in a hurry, consider other options<br><br>
+
+<div class="highlight-action">
+🔁 Re-screening required after re-entering departure area
+</div>
 </div>
 
-<!-- 🚨 Action -->
-<div class="action">
-👉 Use storage service and proceed to re-screening
-</div>
-
-<!-- 📍 Location -->
 <div class="card">
-<h3>🏢 Private Storage</h3>
-<p>Operating Hours: 05:00 ~ 20:00</p>
+<h3>🏢 Storage Facility</h3>
+Hours: 05:00 ~ 20:00
 
-<div class="label">📸 Location Photo</div>
-<img src="storage.jpg" alt="storage photo">
-
-<div class="label">🗺️ Location Map</div>
-<img src="storage_map_en.jpg" alt="storage map">
+<img src="storage.jpg">
+<img src="map_storage_en.jpg">
 </div>
 
-<!-- 💰 Price -->
 <div class="card">
-<h3>💰 Storage Fees</h3>
+<h3>💰 Price</h3>
+<img src="price.jpg">
 
-<div class="label">📊 Price Table</div>
-<img src="price.jpg" alt="price table">
-
-<p style="font-size:13px; margin-top:10px; color:#666;">
-⚠️ This price list is for reference only.<br>
-Please check the exact price at the store
+<p style="font-size:13px; color:#666;">
+⚠️ Prices are for reference only<br>
+Check exact price at the store
 </p>
 </div>
 
-<a class="back" href="index_en.html">← Back</a>
+<a href="index_en.html" class="back">← Back</a>
 
 </body>
 </html>
