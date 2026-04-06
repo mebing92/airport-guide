@@ -3,90 +3,72 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>保管サービス</title>
+<title>手荷物保管</title>
 
 <style>
-body { font-family: Arial; background:#f5f7fa; margin:0; text-align:center; }
-.header { background:#1f4e79; color:white; padding:20px; font-size:22px; }
+body { font-family: Arial; margin:0; background:#f5f7fa; text-align:center; }
+.title { background:#2f5d8c; color:white; padding:18px; font-size:20px; }
+.card { background:white; margin:15px; padding:18px; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.08);}
+.alert { background:#f8d7da; padding:15px; margin:15px; border-radius:15px; font-size:14px;}
+.info { background:#fff3cd; padding:15px; margin:15px; border-radius:15px; font-size:14px;}
 
-.warning {
-    background:#ffe5e5; margin:15px; padding:20px;
-    border-radius:15px; font-weight:bold;
+@keyframes softBlink {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+.highlight-action {
+  margin-top:10px;
+  padding:12px;
+  background:#fff3cd;
+  border-radius:12px;
+  font-weight:bold;
+  animation: softBlink 2s infinite;
 }
 
-.info {
-    background:#fff3cd; margin:15px; padding:18px;
-    border-radius:15px;
-}
-
-.action {
-    background:#ff4d4d; color:white;
-    padding:18px; margin:15px;
-    border-radius:15px; font-weight:bold;
-}
-
-.card {
-    background:white; border-radius:15px;
-    padding:15px; margin:15px;
-}
-
-img { width:100%; border-radius:10px; margin-top:10px; }
-
-.label {
-    font-size:14px; font-weight:bold;
-    color:#1f4e79; margin-top:10px;
-}
-
-.back {
-    display:block; margin:20px;
-    color:#2d89ef; text-decoration:none;
-}
+img { width:100%; border-radius:12px; margin-top:10px;}
+.back { display:block; margin:20px; text-decoration:none; color:#6c63ff;}
 </style>
 </head>
 
 <body>
 
-<div class="header">📦 保管サービス</div>
+<div class="title">📦 手荷物保管</div>
 
-<div class="warning">
+<div class="alert">
 ⚠️ 有料サービスです<br>
-⚠️ 往復で約20〜30分かかります<br>
+⚠️ 往復に約20〜30分かかります<br>
 ⚠️ 国内線到着エリア付近にあります
 </div>
 
 <div class="info">
-💡 時間に余裕がある場合のみご利用ください<br>
-👉 急いでいる場合は他の方法をおすすめします
-</div>
+💡 時間に余裕がある場合のみ利用推奨<br>
+👉 急いでいる場合は他の方法を検討してください<br><br>
 
-<div class="action">
-👉 利用後は再検査へ進んでください
+<div class="highlight-action">
+🔁 再入場時に再検査が必要です
+</div>
 </div>
 
 <div class="card">
 <h3>🏢 保管所</h3>
-<p>営業時間：05:00 ~ 20:00</p>
+営業時間: 05:00 ~ 20:00
 
-<div class="label">📸 写真</div>
 <img src="storage.jpg">
-
-<div class="label">🗺️ マップ</div>
-<img src="storage_map_jp.jpg">
+<img src="map_storage_jp.jpg">
 </div>
 
 <div class="card">
-<h3>💰 料金案内</h3>
-
-<div class="label">📊 料金表</div>
+<h3>💰 料金</h3>
 <img src="price.jpg">
 
-<p style="font-size:13px; margin-top:10px; color:#666;">
-⚠️ 上記料金は参考用です<br>
-正確な料金は現地でご確認ください
+<p style="font-size:13px; color:#666;">
+⚠️ 料金は参考用です<br>
+正確な料金は現地で確認してください
 </p>
 </div>
 
-<a class="back" href="index_jp.html">← 戻る</a>
+<a href="index_jp.html" class="back">← 戻る</a>
 
 </body>
 </html>
