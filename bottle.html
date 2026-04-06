@@ -52,7 +52,7 @@ body {
   animation: pulse 1.5s infinite;
 }
 
-/* 숨쉬기 애니메이션 */
+/* 숨쉬기 효과 */
 @keyframes pulse {
   0% { transform: scale(1); }
   50% { transform: scale(1.03); }
@@ -90,34 +90,54 @@ body {
   text-decoration: none;
   font-weight: bold;
   font-size: 15px;
-  position: relative;
-  overflow: hidden;
-}
-
-/* 👉 화살표 애니메이션 */
-.go-btn::after {
-  content: "👉";
-  position: absolute;
-  right: 15px;
-  animation: arrowMove 1s infinite;
-}
-
-/* 화살표 이동 */
-@keyframes arrowMove {
-  0% { right: 15px; }
-  50% { right: 8px; }
-  100% { right: 15px; }
-}
-
-/* glow */
-.go-btn {
   box-shadow: 0 0 10px rgba(255,153,0,0.6);
+  position: relative;
 }
 
 /* 버튼 눌림 */
 .go-btn:active {
   transform: scale(0.95);
-  box-shadow: 0 0 5px rgba(255,153,0,0.3);
+}
+
+/* 지도 영역 */
+.map-wrap {
+  position: relative;
+}
+
+/* 🔥 경로선 */
+.route-line {
+  position: absolute;
+  left: 30%;
+  top: 60%;
+  width: 35%;
+  height: 4px;
+  background: red;
+  border-radius: 2px;
+  opacity: 0.7;
+}
+
+/* 🔥 움직이는 화살표 */
+.route-arrow {
+  position: absolute;
+  left: 30%;
+  top: 57%;
+  font-size: 22px;
+  animation: moveArrow 2s infinite linear;
+}
+
+/* 이동 애니메이션 */
+@keyframes moveArrow {
+  0% {
+    left: 30%;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    left: 65%;
+    opacity: 0;
+  }
 }
 
 /* 돌아가기 */
@@ -135,9 +155,8 @@ body {
 <div class="title">🧴 공병 구매 안내</div>
 
 <div class="info">
-💡 100ml 이하 공병 구매 후 나누어 담으면<br>
-   기내 반입 가능<br>
-👉 구매 후 출발장 진입 시 재검색 진행
+💡 100ml 이하 공병 구매 후 나누어 담으면 기내 반입 가능<br>
+👉 구매 후 즉시 재검색 진행
 </div>
 
 
@@ -147,10 +166,17 @@ body {
   <div class="store-title">🎁 2층 럭키박스</div>
   <div class="store-time">운영시간: 07:00 ~ 21:00</div>
 
-  <a href="#" class="go-btn">⭐ 가장 가까운 매장</a>
+  <div class="go-btn">⭐ 가장 가까운 매장</div>
 
   <img src="luckybox.jpg" class="store-img">
-  <img src="map2.jpg" class="store-img">
+
+  <!-- 🔥 지도 + 경로 -->
+  <div class="map-wrap">
+    <img src="map2.jpg" class="store-img">
+
+    <div class="route-line"></div>
+    <div class="route-arrow">➡️</div>
+  </div>
 
 </div>
 
