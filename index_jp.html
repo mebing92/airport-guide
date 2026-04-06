@@ -3,100 +3,75 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>保安検査案内</title>
+<title>液体持ち込み制限</title>
 
 <style>
-body { font-family: Arial; background:#f5f7fa; margin:0; text-align:center; }
-.header { background:#1f4e79; color:white; padding:20px; font-size:22px; }
-
-.lang { display:flex; justify-content:center; gap:10px; padding:10px; }
-
-.lang a {
-    padding:8px 12px; background:white; border-radius:10px;
-    text-decoration:none; color:#1f4e79; font-weight:bold;
+body {
+  font-family: Arial;
+  margin: 0;
+  background: #f5f7fa;
+  text-align: center;
+  animation: fadeIn 0.5s ease;
 }
 
-.urgent {
-    background:#ff4d4d; color:white;
-    padding:20px; margin:15px; border-radius:15px;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.card { background:white; margin:15px; padding:20px; border-radius:15px; }
+.lang-container {
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+}
+
+.lang-container a {
+  flex: 1;
+  text-decoration: none;
+  color: #333;
+  padding: 12px;
+  border-radius: 14px;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.kr { background: linear-gradient(#fff,#ffecec);}
+.en { background: linear-gradient(#fff,#eaf2ff);}
+.jp { background: linear-gradient(#fff,#fff0f5);}
+.cn { background: linear-gradient(#fff,#fff4e5);}
+
+.title {
+  background: #2f5d8c;
+  color: white;
+  padding: 15px;
+  font-size: 18px;
+}
 
 .button {
-    display:block;
-    background:#2d89ef;
-    color:white;
-    padding:22px;
-    margin:12px 0;
-    border-radius:15px;
-    text-decoration:none;
-    font-size:18px;
-    font-weight:bold;
-    transition: all 0.15s ease;
+  display: block;
+  background: #2f80ed;
+  color: white;
+  padding: 18px;
+  margin: 15px 0;
+  border-radius: 18px;
+  text-decoration: none;
+  font-size: 18px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  animation: float 2.5s ease-in-out infinite;
 }
 
-.button:hover { background:#1f6fd1; }
+.button small {
+  display: block;
+  font-size: 13px;
+  margin-top: 5px;
+}
 
 .button:active {
-    transform: scale(0.96);
-    background:#1f6fd1;
+  transform: scale(0.96);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
 }
 
-.desc { font-size:14px; margin-top:5px; }
-
-.time {
-    background:#fff3cd;
-    padding:12px;
-    margin-top:8px;
-    border-radius:10px;
-    font-size:14px;
-    color:black;
-}
-</style>
-</head>
-
-<body>
-
-<div class="header">🚫 液体類の持ち込み制限</div>
-
-<div class="lang">
-<a href="index.html">🇰🇷 KR</a>
-<a href="index_en.html">🇺🇸 EN</a>
-<a href="index_jp.html">🇯🇵 JP</a>
-<a href="index_cn.html">🇨🇳 CN</a>
-</div>
-
-<div class="urgent">
-🚨 出発エリアを出た後に戻る場合は再度保安検査が必要です<br><br>
-🔁 ピンクラインに従って移動（並ばないでください）<br>
-🚶 優先検査レーンで待機<br>
-⚠️ 搭乗できない可能性があります
-</div>
-
-<div class="card">
-<p style="font-weight:bold;">方法を選択してください</p>
-
-<a class="button" href="baggage_jp.html">
-🧳 受託手荷物
-<div class="time">
-⏱ 出発50分前以降は預け入れが難しい場合があります<br>
-👉 係員にお尋ねください
-</div>
-</a>
-
-<a class="button" href="bottle_jp.html">
-🧴 容器購入
-<div class="desc">
-100ml以下の容器に移し替え可能
-</div>
-</a>
-
-<a class="button" href="storage_jp.html">
-📦 保管サービス
-</a>
-
-</div>
-
-</body>
-</html>
+@
