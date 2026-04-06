@@ -3,68 +3,94 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>보안검색 안내</title>
+<title>액체류 반입 제한</title>
 
 <style>
-body { font-family: Arial; background:#f5f7fa; margin:0; text-align:center; }
-
-.header { background:#1f4e79; color:white; padding:20px; font-size:22px; }
-
-.lang {
-    display:flex; justify-content:center; gap:10px; padding:10px;
+body {
+  font-family: Arial;
+  margin: 0;
+  background: #f5f7fa;
+  text-align: center;
 }
 
-.lang a {
-    padding:8px 12px; background:white; border-radius:10px;
-    text-decoration:none; color:#1f4e79; font-weight:bold;
-    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+/* 언어 버튼 */
+.lang-container {
+  display: flex;
+  gap: 8px;
+  padding: 10px;
 }
 
-.urgent {
-    background:#ff4d4d; color:white;
-    padding:20px; margin:15px; border-radius:15px;
-    line-height:1.6;
+.lang-container a {
+  flex: 1;
+  text-decoration: none;
+  color: black;
+  background: #eee;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 14px;
 }
 
-.card {
-    background:white; margin:15px;
-    padding:20px; border-radius:15px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+/* 제목 */
+.title {
+  background: #2f5d8c;
+  color: white;
+  padding: 15px;
+  font-size: 18px;
+}
+
+/* 버튼 영역 */
+.main-buttons {
+  padding: 15px;
 }
 
 .button {
-    display:block;
-    background:#2d89ef;
-    color:white;
-    padding:22px;
-    margin:12px 0;
-    border-radius:15px;
-    text-decoration:none;
-    font-size:18px;
-    font-weight:bold;
-    transition: all 0.15s ease;
+  display: block;
+  background: #2f80ed;
+  color: white;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 15px;
+  text-decoration: none;
+  font-size: 16px;
 }
 
-.button:hover { background:#1f6fd1; }
-
-.button:active {
-    transform: scale(0.96);
-    background:#1f6fd1;
-}
-
-.desc { font-size:14px; margin-top:5px; }
-
-.time {
-    background:#fff3cd;
-    padding:12px;
-    margin-top:8px;
-    border-radius:10px;
-    font-size:14px;
-    color:black;
+/* 경고 박스 */
+.alert-box {
+  background: #ff5c5c;
+  color: white;
+  margin: 15px;
+  padding: 15px;
+  border-radius: 15px;
+  font-size: 14px;
 }
 </style>
 </head>
 
+<body>
+
+<div class="lang-container">
+  <a href="index.html">한국어</a>
+  <a href="index_en.html">EN</a>
+  <a href="index_jp.html">日本語</a>
+  <a href="index_cn.html">中文</a>
+</div>
+
+<div class="title">🚫 액체류 반입 제한</div>
+
+<div class="main-buttons">
+  <a class="button" href="baggage.html">🧳 수하물 위탁</a>
+  <a class="button" href="bottle.html">🧴 공병 구매</a>
+  <a class="button" href="storage.html">📦 보관소 이용</a>
+</div>
+
+<div class="alert-box">
+  🚨 출발장을 나갔다가 다시 들어올 경우 재검색 필요<br>
+  👉 줄 서지 말고 분홍색 라인 이동<br>
+  ⚠️ 미이행 시 탑승 제한
+</div>
+
+</body>
+</html>
 <body>
 
 <div class="header">🚫 액체류 반입 제한</div>
