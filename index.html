@@ -11,6 +11,12 @@ body {
   margin: 0;
   background: #f5f7fa;
   text-align: center;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* 언어 버튼 */
@@ -57,6 +63,10 @@ body {
   transform: scale(0.95);
 }
 
+.lang-container a:hover {
+  transform: translateY(-2px);
+}
+
 /* 제목 */
 .title {
   background: #2f5d8c;
@@ -75,10 +85,26 @@ body {
   background: #2f80ed;
   color: white;
   padding: 18px;
-  margin: 12px 0;
+  margin: 15px 0;
   border-radius: 18px;
   text-decoration: none;
   font-size: 18px;
+  transition: 0.15s;
+}
+
+.button small {
+  display: block;
+  font-size: 13px;
+  opacity: 0.9;
+  margin-top: 5px;
+}
+
+.button:active {
+  transform: scale(0.96);
+}
+
+.button:hover {
+  opacity: 0.9;
 }
 
 /* 설명 박스 */
@@ -114,18 +140,29 @@ body {
 <div class="title">🚫 액체류 반입 제한</div>
 
 <div class="main-buttons">
-  <a class="button" href="baggage.html">🧳 수하물 위탁</a>
+
+  <a class="button" href="baggage.html">
+    🧳 수하물 위탁
+    <small>→ 물건 맡기고 탑승</small>
+  </a>
   <div class="sub-text">
     ⏰ 출발 50분 전 이후에는 위탁이 어려울 수 있습니다<br>
     👉 시간이 부족할 경우 보안검색요원에게 문의해주세요
   </div>
 
-  <a class="button" href="bottle.html">🧴 공병 구매</a>
+  <a class="button" href="bottle.html">
+    🧴 공병 구매
+    <small>→ 나눠 담아 기내 반입</small>
+  </a>
   <div class="sub-text">
     💧 초과 용액은 100ml 이하 공병에 나누어 담으면 기내 반입 가능합니다
   </div>
 
-  <a class="button" href="storage.html">📦 보관소 이용</a>
+  <a class="button" href="storage.html">
+    📦 보관소 이용
+    <small>→ 물건 보관 후 출국</small>
+  </a>
+
 </div>
 
 <div class="alert-box">
@@ -133,6 +170,16 @@ body {
   👉 줄 서지 말고 분홍색 라인 이동<br>
   ⚠️ 미이행 시 탑승 제한
 </div>
+
+<script>
+document.querySelectorAll('.button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (navigator.vibrate) {
+      navigator.vibrate(30);
+    }
+  });
+});
+</script>
 
 </body>
 </html>
