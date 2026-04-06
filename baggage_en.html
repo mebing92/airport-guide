@@ -3,120 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Check-in Baggage Guide</title>
+<title>Baggage Check Guide</title>
 
 <style>
-body {
-    font-family: Arial;
-    background:#f5f7fa;
-    margin:0;
-    text-align:center;
-}
-
-.header {
-    background:#1f4e79;
-    color:white;
-    padding:20px;
-    font-size:22px;
-}
-
-/* 핵심 안내 */
-.notice {
-    background:#ffe5e5;
-    margin:15px;
-    padding:18px;
-    border-radius:15px;
-    font-size:16px;
-    line-height:1.6;
-    font-weight:bold;
-}
-
-/* 시간 안내 */
-.warning {
-    background:#fff3cd;
-    margin:15px;
-    padding:18px;
-    border-radius:15px;
-    font-size:15px;
-    line-height:1.6;
-    font-weight:bold;
-}
-
-/* 행동 */
-.action {
-    background:#ff4d4d;
-    color:white;
-    padding:18px;
-    margin:15px;
-    border-radius:15px;
-    font-weight:bold;
-    font-size:16px;
-}
-
-/* 카드 */
-.card {
-    background:white;
-    padding:20px;
-    margin:15px;
-    border-radius:15px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
-}
-
-.back {
-    display:block;
-    margin:20px;
-    color:#2d89ef;
-    text-decoration:none;
-}
+body { font-family: Arial; margin:0; background:#f5f7fa; text-align:center;}
+.title {background:#2f5d8c;color:white;padding:18px;font-size:18px;}
+.card {margin:12px 16px;padding:16px;border-radius:16px;font-size:14px;line-height:1.6;}
+.warn {background:#f8dede;}
+.action {background:#ff5c5c;color:white;font-size:15px;box-shadow:0 6px 15px rgba(0,0,0,0.2);}
+.info {background:#fff;box-shadow:0 4px 10px rgba(0,0,0,0.08);}
+.list {margin-top:10px;line-height:1.8;}
+.back {display:inline-block;margin:24px;padding:14px 24px;background:#2f5d8c;color:white;border-radius:14px;text-decoration:none;}
 </style>
 </head>
 
 <body>
 
-<div class="header">🧳 Check-in Baggage</div>
+<div class="title">🧳 Baggage Check Guide</div>
 
-<!-- 💰 추가요금 -->
-<div class="notice">
-💰 Additional charges may apply<br>
-👉 Please check with your airline counter
+<div class="card warn">
+💰 Additional fees may apply<br>
+👉 Please check with the airline counter
 </div>
 
-<!-- 🚫 기존 수하물 -->
-<div class="notice">
-🚫 You cannot reopen checked baggage<br>
-👉 A new bag must be checked
+<div class="card warn">
+❌ Checked baggage cannot be reopened<br>
+👉 You must check a new bag
 </div>
 
-<!-- ⏱ 시간 -->
-<div class="warning">
-⏱ Baggage check-in may not be available within 50 minutes of departure<br>
-👉 If time is limited, please ask a security officer
+<div class="card action">
+📍 How to Use<br><br>
+✈️ Airline check-in counter (1F)<br>
+👉 Baggage check available at counter<br>
+⏱ Takes about 5~10 minutes
 </div>
 
-<!-- 🚨 행동 -->
-<div class="action">
-👉 Proceed to the check-in counter for baggage check-in
+<div class="card info">
+⚠️ Before Checking<br><br>
+The following items are NOT allowed:
+<div class="list">
+🔋 Batteries (including power banks)<br>
+🔥 Lighters<br>
+💇‍♀️ Cordless hair iron<br>
+🚬 E-cigarettes
+</div>
 </div>
 
-<!-- 📍 이용 방법 -->
-<div class="card">
-<h3>📍 How to proceed</h3>
-<p>Go to your airline check-in counter</p>
-<p>⏱ Estimated time: 5–10 minutes</p>
-</div>
-
-<!-- ⚠️ 확인 -->
-<div class="card">
-<h3>⚠️ Before checking your baggage</h3>
-<p>Please make sure the following items are NOT included</p>
-
-<p>🔋 Batteries (including power banks)</p>
-<p>🔥 Lighters</p>
-<p>💇 Cordless hair irons</p>
-<p>🚬 E-cigarettes</p>
-</div>
-
-<a class="back" href="index_en.html">← Back</a>
+<a href="index_en.html" class="back">← Back</a>
 
 </body>
 </html>
