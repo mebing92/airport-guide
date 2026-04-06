@@ -63,50 +63,6 @@ img {
   border-radius: 15px;
   margin-top: 10px;
 }
-
-/* 🔥 경로선 */
-.route-line {
-  position: absolute;
-  left: 55%;
-  top: 70%;
-  width: 30%;
-  height: 4px;
-  background: red;
-  transform: rotate(-35deg);
-  transform-origin: left center;
-  border-radius: 2px;
-  opacity: 0.8;
-}
-
-/* 🔥 화살표 */
-.route-arrow {
-  position: absolute;
-  left: 55%;
-  top: 68%;
-  font-size: 22px;
-  animation: moveArrowDiagonal 2s infinite linear;
-}
-
-@keyframes moveArrowDiagonal {
-  0% {
-    left: 55%;
-    top: 68%;
-    opacity: 0;
-  }
-  20% {
-    opacity: 1;
-  }
-  100% {
-    left: 78%;
-    top: 50%;
-    opacity: 0;
-  }
-}
-
-/* 지도 영역 */
-.map-wrap {
-  position: relative;
-}
 </style>
 </head>
 
@@ -114,7 +70,6 @@ img {
 
 <div class="title">🧴 공병 구매 안내</div>
 
-<!-- ✅ 수정된 안내문 -->
 <div class="info">
 💡 100ml 이하 공병 구매 후 나누어 담으면<br>
 기내 반입 가능<br>
@@ -126,26 +81,19 @@ img {
   <h3>🎁 2층 럭키박스</h3>
   <div>운영시간: 07:00 ~ 21:00</div>
 
-  <div class="move-btn">⭐ 가장 가까운 매장 👉</div>
+  <div class="move-btn">⭐ 가장 가까운 매장 </div>
 
   <img src="luckybox.jpg">
-
-  <div class="map-wrap">
-    <img src="map_luckybox.jpg">
-
-    <!-- 🔥 경로 -->
-    <div class="route-line"></div>
-    <div class="route-arrow">➡️</div>
-  </div>
+  <img src="map2.jpg">
 </div>
 
-<!-- 이마트24 -->
+<!-- 편의점 -->
 <div class="card">
   <h3>🏪 1층 편의점 (이마트24)</h3>
   <div>운영시간: 05:00 ~ 22:00</div>
 
   <img src="emart24.jpg">
-  <img src="map_emart.jpg">
+  <img src="map1.jpg">
 </div>
 
 <div style="margin:20px;">
