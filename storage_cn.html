@@ -6,85 +6,69 @@
 <title>行李寄存</title>
 
 <style>
-body { font-family: Arial; background:#f5f7fa; margin:0; text-align:center; }
-.header { background:#1f4e79; color:white; padding:20px; font-size:22px; }
+body { font-family: Arial; margin:0; background:#f5f7fa; text-align:center; }
+.title { background:#2f5d8c; color:white; padding:18px; font-size:20px; }
+.card { background:white; margin:15px; padding:18px; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.08);}
+.alert { background:#f8d7da; padding:15px; margin:15px; border-radius:15px; font-size:14px;}
+.info { background:#fff3cd; padding:15px; margin:15px; border-radius:15px; font-size:14px;}
 
-.warning {
-    background:#ffe5e5; margin:15px;
-    padding:20px; border-radius:15px;
-    font-weight:bold;
+@keyframes softBlink {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+.highlight-action {
+  margin-top:10px;
+  padding:12px;
+  background:#fff3cd;
+  border-radius:12px;
+  font-weight:bold;
+  animation: softBlink 2s infinite;
 }
 
-.info {
-    background:#fff3cd; margin:15px;
-    padding:18px; border-radius:15px;
-}
-
-.action {
-    background:#ff4d4d; color:white;
-    padding:18px; margin:15px;
-    border-radius:15px; font-weight:bold;
-}
-
-.card {
-    background:white; border-radius:15px;
-    padding:15px; margin:15px;
-}
-
-img { width:100%; border-radius:10px; margin-top:10px; }
-
-.label {
-    font-size:14px; font-weight:bold;
-    color:#1f4e79; margin-top:10px;
-}
-
-.back { display:block; margin:20px; color:#2d89ef; text-decoration:none; }
+img { width:100%; border-radius:12px; margin-top:10px;}
+.back { display:block; margin:20px; text-decoration:none; color:#6c63ff;}
 </style>
 </head>
 
 <body>
 
-<div class="header">📦 行李寄存</div>
+<div class="title">📦 行李寄存</div>
 
-<div class="warning">
-⚠️ 本服务为收费项目<br>
+<div class="alert">
+⚠️ 此服务需收费<br>
 ⚠️ 往返约需20~30分钟<br>
 ⚠️ 位于国内到达区域附近
 </div>
 
 <div class="info">
-💡 仅建议在时间充裕时使用<br>
-👉 如时间紧张，请选择其他方式
-</div>
+💡 建议在时间充足时使用<br>
+👉 若时间紧张请选择其他方式<br><br>
 
-<div class="action">
-👉 使用后请立即重新安检
+<div class="highlight-action">
+🔁 重新进入出发区需再次安检
+</div>
 </div>
 
 <div class="card">
 <h3>🏢 寄存处</h3>
-<p>营业时间：05:00 ~ 20:00</p>
+营业时间: 05:00 ~ 20:00
 
-<div class="label">📸 照片</div>
 <img src="storage.jpg">
-
-<div class="label">🗺️ 地图</div>
-<img src="storage_map_cn.jpg">
+<img src="map_storage_cn.jpg">
 </div>
 
 <div class="card">
-<h3>💰 收费标准</h3>
-
-<div class="label">📊 价格表</div>
+<h3>💰 费用</h3>
 <img src="price.jpg">
 
-<p style="font-size:13px; margin-top:10px; color:#666;">
-⚠️ 以上价格仅供参考<br>
-具体费用请以现场为准
+<p style="font-size:13px; color:#666;">
+⚠️ 价格仅供参考<br>
+具体费用请咨询现场
 </p>
 </div>
 
-<a class="back" href="index_cn.html">← 返回</a>
+<a href="index_cn.html" class="back">← 返回</a>
 
 </body>
 </html>
