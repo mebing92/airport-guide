@@ -74,4 +74,74 @@ body {
   box-shadow: 0 3px 8px rgba(0,0,0,0.2);
 }
 
-@
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+  100% { transform: translateY(0); }
+}
+
+.sub-text {
+  background: #f2e6c9;
+  margin: -8px 20px 15px;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 13px;
+}
+
+.alert-box {
+  background: #ff5c5c;
+  color: white;
+  margin: 15px;
+  padding: 15px;
+  border-radius: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="lang-container">
+  <a href="index.html" class="kr">🇰🇷<br>한국어</a>
+  <a href="index_en.html" class="en">🇺🇸<br>EN</a>
+  <a href="index_jp.html" class="jp">🇯🇵<br>日本語</a>
+  <a href="index_cn.html" class="cn">🇨🇳<br>中文</a>
+</div>
+
+<div class="title">🚫 液体持ち込み制限</div>
+
+<a class="button" href="baggage_jp.html">
+🧳 手荷物預け
+<small>→ 預けて搭乗</small>
+</a>
+<div class="sub-text">
+⏰ 出発50分前以降は預けが難しい場合があります<br>
+👉 時間がない場合は係員にお尋ねください
+</div>
+
+<a class="button" href="bottle_jp.html">
+🧴 容器購入
+<small>→ 詰め替えて機内持込</small>
+</a>
+<div class="sub-text">
+💧 液体は100ml以下の容器に入れれば持ち込み可能
+</div>
+
+<a class="button" href="storage_jp.html">
+📦 保管サービス
+<small>→ 保管後出発</small>
+</a>
+
+<div class="alert-box">
+🚨 一度出ると再検査が必要です<br>
+👉 ピンクラインに従って移動<br>
+⚠️ 未実施の場合搭乗不可
+</div>
+
+<script>
+document.querySelectorAll('.button').forEach(btn=>{
+btn.addEventListener('click',()=>{if(navigator.vibrate){navigator.vibrate(30);}});
+});
+</script>
+
+</body>
+</html>
