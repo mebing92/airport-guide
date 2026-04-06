@@ -3,100 +3,82 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Security Screening Guide</title>
+<title>Liquid Restriction</title>
 
 <style>
-body { font-family: Arial; background:#f5f7fa; margin:0; text-align:center; }
-.header { background:#1f4e79; color:white; padding:20px; font-size:22px; }
+body { font-family: Arial; margin:0; background:#f5f7fa; text-align:center; animation:fadeIn .5s ease;}
+@keyframes fadeIn { from{opacity:0;transform:translateY(10px);} to{opacity:1;transform:translateY(0);} }
 
-.lang { display:flex; justify-content:center; gap:10px; padding:10px; }
-
-.lang a {
-    padding:8px 12px; background:white; border-radius:10px;
-    text-decoration:none; color:#1f4e79; font-weight:bold;
+.lang-container { display:flex; gap:8px; padding:10px;}
+.lang-container a {
+flex:1; text-decoration:none; color:#333; padding:12px; border-radius:14px;
+font-size:13px; display:flex; flex-direction:column; align-items:center;
+box-shadow:0 4px 10px rgba(0,0,0,.08); transition:.2s;
 }
+.kr{background:linear-gradient(#fff,#ffecec);}
+.en{background:linear-gradient(#fff,#eaf2ff);}
+.jp{background:linear-gradient(#fff,#fff0f5);}
+.cn{background:linear-gradient(#fff,#fff4e5);}
+.lang-container a:active{transform:scale(.95);}
 
-.urgent {
-    background:#ff4d4d; color:white;
-    padding:20px; margin:15px; border-radius:15px;
-}
-
-.card { background:white; margin:15px; padding:20px; border-radius:15px; }
+.title { background:#2f5d8c; color:#fff; padding:15px; font-size:18px;}
 
 .button {
-    display:block;
-    background:#2d89ef;
-    color:white;
-    padding:22px;
-    margin:12px 0;
-    border-radius:15px;
-    text-decoration:none;
-    font-size:18px;
-    font-weight:bold;
-    transition: all 0.15s ease;
+display:block; background:#2f80ed; color:#fff; padding:18px; margin:15px 0;
+border-radius:18px; text-decoration:none; font-size:18px;
+box-shadow:0 6px 15px rgba(0,0,0,.15);
+animation:float 2.5s ease-in-out infinite;
 }
+.button small{display:block;font-size:13px;margin-top:5px;}
 
-.button:hover { background:#1f6fd1; }
+.button:active{transform:scale(.96); box-shadow:0 3px 8px rgba(0,0,0,.2);}
 
-.button:active {
-    transform: scale(0.96);
-    background:#1f6fd1;
-}
+@keyframes float {0%{transform:translateY(0);}50%{transform:translateY(-3px);}100%{transform:translateY(0);}}
 
-.desc { font-size:14px; margin-top:5px; }
+.sub-text { background:#f2e6c9; margin:-8px 20px 15px; padding:12px; border-radius:12px; font-size:13px;}
 
-.time {
-    background:#fff3cd;
-    padding:12px;
-    margin-top:8px;
-    border-radius:10px;
-    font-size:14px;
-    color:black;
-}
+.alert-box { background:#ff5c5c; color:#fff; margin:15px; padding:15px; border-radius:15px;}
 </style>
 </head>
 
 <body>
 
-<div class="header">🚫 Liquid Restrictions</div>
-
-<div class="lang">
-<a href="index.html">🇰🇷 KR</a>
-<a href="index_en.html">🇺🇸 EN</a>
-<a href="index_jp.html">🇯🇵 JP</a>
-<a href="index_cn.html">🇨🇳 CN</a>
+<div class="lang-container">
+<a href="index.html" class="kr">🇰🇷<br>한국어</a>
+<a href="index_en.html" class="en">🇺🇸<br>EN</a>
+<a href="index_jp.html" class="jp">🇯🇵<br>日本語</a>
+<a href="index_cn.html" class="cn">🇨🇳<br>中文</a>
 </div>
 
-<div class="urgent">
-🚨 If you exit the departure area, you must go through security screening again<br><br>
-🔁 Follow the <b>pink line</b> (do not queue)<br>
-🚶 Wait at the <b>priority screening lane</b><br>
-⚠️ Non-compliance may affect boarding
+<div class="title">🚫 Liquid Restriction</div>
+
+<a class="button" href="baggage_en.html">🧳 Checked baggage
+<small>→ Check in and board</small></a>
+<div class="sub-text">
+⏰ May not be available within 50 min before departure<br>
+👉 Ask security staff if urgent
 </div>
 
-<div class="card">
-<p style="font-weight:bold;">Choose how to proceed</p>
-
-<a class="button" href="baggage_en.html">
-🧳 Check-in baggage
-<div class="time">
-⏱ May not be available within 50 minutes of departure<br>
-👉 Ask a security officer if time is limited
+<a class="button" href="bottle_en.html">🧴 Buy container
+<small>→ Transfer and carry onboard</small></a>
+<div class="sub-text">
+💧 Liquids over limit can be transferred into 100ml containers
 </div>
-</a>
 
-<a class="button" href="bottle_en.html">
-🧴 Buy empty bottles
-<div class="desc">
-Transfer liquids into containers under 100ml
+<a class="button" href="storage_en.html">📦 Storage service
+<small>→ Store and depart</small></a>
+
+<div class="alert-box">
+🚨 Re-screening required if you exit<br>
+👉 Follow pink line<br>
+⚠️ Boarding may be denied
 </div>
-</a>
 
-<a class="button" href="storage_en.html">
-📦 Storage service
-</a>
-
-</div>
+<script>
+document.querySelectorAll('.button').forEach(btn=>{
+btn.addEventListener('click',()=>{if(navigator.vibrate){navigator.vibrate(30);}});
+});
+</script>
 
 </body>
 </html>
