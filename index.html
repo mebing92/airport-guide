@@ -7,7 +7,7 @@
 
 <style>
 body {
-  font-family: Arial;
+  font-family: Arial, sans-serif;
   margin: 0;
   background: #f5f7fa;
   text-align: center;
@@ -19,57 +19,139 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* 언어 버튼 */
+/* 🌍 언어 버튼 */
 .lang-container {
   display: flex;
-  gap: 8px;
-  padding: 10px;
+  gap: 10px;
+  padding: 12px;
 }
 
 .lang-container a {
   flex: 1;
   text-decoration: none;
   color: #333;
-  padding: 12px;
-  border-radius: 14px;
-  font-size: 13px;
-
+  padding: 14px;
+  border-radius: 16px;
+  font-size: 14px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-
   box-shadow: 0 4px 10px rgba(0,0,0,0.08);
   transition: 0.2s;
 }
 
-.lang-container a.kr {
-  background: linear-gradient(135deg, #ffffff, #ffecec);
-}
+.lang-container a.kr { background: linear-gradient(135deg, #ffffff, #ffe5e5); }
+.lang-container a.en { background: linear-gradient(135deg, #ffffff, #e5f0ff); }
+.lang-container a.jp { background: linear-gradient(135deg, #ffffff, #ffeef5); }
+.lang-container a.cn { background: linear-gradient(135deg, #ffffff, #fff4e5); }
 
-.lang-container a.en {
-  background: linear-gradient(135deg, #ffffff, #eaf2ff);
-}
+.lang-container a:active { transform: scale(0.95); }
 
-.lang-container a.jp {
-  background: linear-gradient(135deg, #ffffff, #fff0f5);
-}
-
-.lang-container a.cn {
-  background: linear-gradient(135deg, #ffffff, #fff4e5);
-}
-
-.lang-container a:active {
-  transform: scale(0.95);
-}
-
-.lang-container a:hover {
-  transform: translateY(-2px);
-}
-
-/* 제목 */
+/* 📌 타이틀 */
 .title {
   background: #2f5d8c;
   color: white;
-  padding: 15px;
-  font-size
+  padding: 18px;
+  font-size: 18px;
+}
+
+/* 🔘 버튼 */
+.main-buttons {
+  padding: 20px 15px;
+}
+
+.button {
+  display: block;
+  background: #3b7ed0;
+  color: white;
+  padding: 18px;
+  margin: 12px 0;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 17px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  transition: 0.2s;
+}
+
+.button:active {
+  transform: scale(0.97);
+}
+
+.sub-text {
+  display: block;
+  font-size: 13px;
+  margin-top: 6px;
+  opacity: 0.9;
+}
+
+/* 📦 버튼 내부 설명 */
+.desc {
+  background: #efe2c6;
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 12px;
+  color: #333;
+  font-size: 13px;
+}
+
+/* 🚨 경고 */
+.alert-box {
+  background: #ff5c5c;
+  color: white;
+  margin: 20px;
+  padding: 18px;
+  border-radius: 18px;
+  font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🌍 언어 -->
+<div class="lang-container">
+  <a href="index.html" class="kr">🇰🇷<div>한국어</div></a>
+  <a href="index_en.html" class="en">🇺🇸<div>EN</div></a>
+  <a href="index_jp.html" class="jp">🇯🇵<div>日本語</div></a>
+  <a href="index_cn.html" class="cn">🇨🇳<div>中文</div></a>
+</div>
+
+<!-- 📌 타이틀 -->
+<div class="title">🚫 액체류 반입 제한</div>
+
+<!-- 🔘 버튼 영역 -->
+<div class="main-buttons">
+
+  <a class="button" href="baggage.html">
+    🧳 수하물 위탁
+    <span class="sub-text">→ 물건 맡기고 탑승</span>
+    <div class="desc">
+      ⏰ 출발 50분 전 이후 위탁 어려움<br>
+      👉 시간 부족 시 보안검색요원 문의
+    </div>
+  </a>
+
+  <a class="button" href="bottle.html">
+    🧴 공병 구매
+    <span class="sub-text">→ 나눠 담아 기내 반입</span>
+    <div class="desc">
+      💧 100ml 이하 공병에 나누면 반입 가능
+    </div>
+  </a>
+
+  <a class="button" href="storage.html">
+    📦 보관소 이용
+    <span class="sub-text">→ 물건 보관 후 출국</span>
+  </a>
+
+</div>
+
+<!-- 🚨 경고 -->
+<div class="alert-box">
+  🚨 출발장 나갔다 재입장 시 재검색 필요<br>
+  👉 줄 서지 말고 분홍색 라인 이동<br>
+  ⚠️ 미이행 시 탑승 제한
+</div>
+
+</body>
+</html>
