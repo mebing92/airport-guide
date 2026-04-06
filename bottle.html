@@ -7,117 +7,166 @@
 
 <style>
 body {
-    font-family: Arial;
-    background:#f5f7fa;
-    margin:0;
-    text-align:center;
+  font-family: Arial;
+  margin: 0;
+  background: #f5f7fa;
+  text-align: center;
 }
 
-.header {
-    background:#1f4e79;
-    color:white;
-    padding:20px;
-    font-size:22px;
+/* 타이틀 */
+.title {
+  background: #2f5d8c;
+  color: white;
+  padding: 18px;
+  font-size: 20px;
 }
 
-.solution {
-    background:#2d89ef;
-    color:white;
-    margin:15px;
-    padding:20px;
-    border-radius:15px;
-    font-size:17px;
-    line-height:1.6;
+/* 안내 */
+.info {
+  background: #3f80ed;
+  color: white;
+  margin: 20px;
+  padding: 18px;
+  border-radius: 16px;
+  font-size: 15px;
 }
 
-.action {
-    background:#ff4d4d;
-    color:white;
-    padding:18px;
-    margin:15px;
-    border-radius:15px;
-    font-size:16px;
-    font-weight:bold;
+/* 카드 */
+.store {
+  background: white;
+  margin: 20px;
+  padding: 15px;
+  border-radius: 18px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  transition: 0.2s;
 }
 
-.card {
-    background:white;
-    border-radius:15px;
-    padding:15px;
-    margin:15px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+/* 클릭 느낌 */
+.store:active {
+  transform: scale(0.98);
 }
 
-img {
-    width:100%;
-    border-radius:10px;
-    margin-top:10px;
+/* ⭐ 강조 카드 */
+.highlight {
+  border: 2px solid #ffcc00;
+  animation: pulse 1.5s infinite;
 }
 
-/* 라벨 */
-.label {
-    font-size:14px;
-    font-weight:bold;
-    color:#1f4e79;
-    margin-top:10px;
+/* 숨쉬기 애니메이션 */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
 }
 
-/* 지도 강조 */
-.map {
-    border:2px solid #2d89ef;
+/* 제목 */
+.store-title {
+  font-size: 17px;
+  font-weight: bold;
 }
 
+/* 시간 */
+.store-time {
+  font-size: 14px;
+  color: #666;
+  margin: 6px 0 10px;
+}
+
+/* 이미지 */
+.store-img {
+  width: 100%;
+  border-radius: 12px;
+  margin-top: 10px;
+}
+
+/* 👉 버튼 */
+.go-btn {
+  display: block;
+  margin: 12px auto;
+  padding: 14px;
+  background: linear-gradient(135deg, #ffcc00, #ff9900);
+  color: white;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 👉 화살표 애니메이션 */
+.go-btn::after {
+  content: "👉";
+  position: absolute;
+  right: 15px;
+  animation: arrowMove 1s infinite;
+}
+
+/* 화살표 이동 */
+@keyframes arrowMove {
+  0% { right: 15px; }
+  50% { right: 8px; }
+  100% { right: 15px; }
+}
+
+/* glow */
+.go-btn {
+  box-shadow: 0 0 10px rgba(255,153,0,0.6);
+}
+
+/* 버튼 눌림 */
+.go-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 5px rgba(255,153,0,0.3);
+}
+
+/* 돌아가기 */
 .back {
-    display:block;
-    margin:20px;
-    color:#2d89ef;
-    text-decoration:none;
-    font-size:18px;
+  display: inline-block;
+  margin: 20px;
+  color: #2f5d8c;
+  text-decoration: none;
 }
 </style>
 </head>
 
 <body>
 
-<div class="header">🧴 공병 구매 안내</div>
+<div class="title">🧴 공병 구매 안내</div>
 
-<!-- 해결 -->
-<div class="solution">
-💡 100ml 이하 공병을 구매하여<br>
-초과 액체를 나누어 담으면<br>
-👉 기내 반입이 가능합니다
-</div>
-
-<!-- 행동 -->
-<div class="action">
+<div class="info">
+💡 100ml 이하 공병 구매 후 나누어 담으면 기내 반입 가능<br>
 👉 구매 후 즉시 재검색 진행
 </div>
 
-<!-- 편의점 -->
-<div class="card">
-<h3>🏪 1층 편의점 (e마트24)</h3>
-<p>운영시간: 05:00 ~ 22:00</p>
 
-<div class="label">📸 매장 사진</div>
-<img src="emart24.jpg">
+<!-- ⭐ 럭키박스 -->
+<div class="store highlight">
 
-<div class="label">🗺️ 매장 위치</div>
-<img src="map1.jpg" class="map">
+  <div class="store-title">🎁 2층 럭키박스 (가장 가까움)</div>
+  <div class="store-time">운영시간: 07:00 ~ 21:00</div>
+
+  <a href="#" class="go-btn">여기로 이동</a>
+
+  <img src="luckybox.jpg" class="store-img">
+  <img src="map2.jpg" class="store-img">
+
 </div>
 
-<!-- 럭키박스 -->
-<div class="card">
-<h3>🎁 2층 럭키박스</h3>
-<p>운영시간: 07:00 ~ 21:00</p>
 
-<div class="label">📸 매장 사진</div>
-<img src="luckybox.jpg">
+<!-- 이마트 -->
+<div class="store">
 
-<div class="label">🗺️ 매장 위치</div>
-<img src="map2.jpg" class="map">
+  <div class="store-title">🏪 1층 편의점 (이마트24)</div>
+  <div class="store-time">운영시간: 05:00 ~ 22:00</div>
+
+  <img src="emart24.jpg" class="store-img">
+  <img src="map1.jpg" class="store-img">
+
 </div>
 
-<a class="back" href="index.html">← 돌아가기</a>
+
+<a href="index.html" class="back">← 돌아가기</a>
 
 </body>
 </html>
