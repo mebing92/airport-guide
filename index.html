@@ -3,6 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+(function() {
+  const lang = navigator.language || navigator.userLanguage;
+
+  if (location.pathname.includes("index_en") ||
+      location.pathname.includes("index_jp") ||
+      location.pathname.includes("index_cn")) {
+    return;
+  }
+
+  if (lang.startsWith("en")) {
+    location.replace("index_en.html");
+  } else if (lang.startsWith("ja")) {
+    location.replace("index_jp.html");
+  } else if (lang.startsWith("zh")) {
+    location.replace("index_cn.html");
+  }
+})();
+</script>  
+  
 <title>액체류 반입 제한</title>
 
 <style>
