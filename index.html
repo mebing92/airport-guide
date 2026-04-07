@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function() {
     zh: "请选择处理方式，\n并告知安检人员"
   };
 
-  // ✅ 버튼 다국어 추가
   const buttons = {
     ko: "확인",
     en: "OK",
@@ -35,29 +34,19 @@ document.addEventListener("DOMContentLoaded", function() {
   const popupText = document.getElementById("popup-text");
   const popupBtn = document.querySelector("#popup button");
 
-  if (!localStorage.getItem("popupSeen") && popup && popupText) {
-    popupText.innerText = messages[langKey];
+  // ✅ 항상 뜨게 변경
+  if (popupText) popupText.innerText = messages[langKey];
+  if (popupBtn) popupBtn.innerText = buttons[langKey];
 
-    // ✅ 버튼 언어 자동 변경
-    if (popupBtn) popupBtn.innerText = buttons[langKey];
+  // 🔥 진동 강화
+  if (navigator.vibrate) navigator.vibrate([120, 50, 120]);
 
-    if (navigator.vibrate) {
-      navigator.vibrate(100);
-    }
-
-    sound.play().catch(() => {});
-  } else {
-    if (popup) popup.style.display = "none";
-  }
+  sound.play().catch(() => {});
 
   window.closePopup = function() {
     popup.style.display = "none";
-    localStorage.setItem("popupSeen", "true");
 
-    if (navigator.vibrate) {
-      navigator.vibrate(50);
-    }
-
+    if (navigator.vibrate) navigator.vibrate(80);
     sound.play().catch(() => {});
   };
 
@@ -190,6 +179,17 @@ body {
   padding: 15px;
   border-radius: 15px;
   font-size: 14px;
+}
+
+/* 🔥 팝업 버튼 업그레이드 */
+#popup button {
+  box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+  transition: all 0.15s ease;
+}
+
+#popup button:active {
+  transform: scale(0.9);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 </style>
 </head>
