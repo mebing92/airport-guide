@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const popup = document.getElementById("popup");
   const popupText = document.getElementById("popup-text");
 
-  if (!localStorage.getItem("popupSeen")) {
+  if (!localStorage.getItem("popupSeen") && popup && popupText) {
     popupText.innerText = messages[langKey];
 
     if (navigator.vibrate) {
