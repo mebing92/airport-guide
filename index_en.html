@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -24,27 +24,32 @@ document.addEventListener("DOMContentLoaded", function() {
   };
 
   const userLang = navigator.language || "en";
-  let popupLang = "en";
+  let langKey = "en";
 
-  if (userLang.startsWith("ko")) popupLang = "ko";
-  else if (userLang.startsWith("ja")) popupLang = "ja";
-  else if (userLang.startsWith("zh")) popupLang = "zh";
+  if (userLang.startsWith("ko")) langKey = "ko";
+  else if (userLang.startsWith("ja")) langKey = "ja";
+  else if (userLang.startsWith("zh")) langKey = "zh";
 
   const popup = document.getElementById("popup");
   const popupText = document.getElementById("popup-text");
   const popupBtn = document.querySelector("#popup button");
 
-  // 👉 팝업만 자동 번역
-  if (popupText) popupText.innerText = messages[popupLang];
-  if (popupBtn) popupBtn.innerText = buttons[popupLang];
+  if (!localStorage.getItem("popupSeen") && popup && popupText) {
+    popupText.innerText = messages[langKey];
 
-  if (navigator.vibrate) navigator.vibrate([120,50,120]);
-  sound.play().catch(()=>{});
+    if (popupBtn) popupBtn.innerText = buttons[langKey];
+
+    if (navigator.vibrate) navigator.vibrate(100);
+    sound.play().catch(()=>{});
+  } else {
+    if (popup) popup.style.display = "none";
+  }
 
   window.closePopup = function() {
     popup.style.display = "none";
+    localStorage.setItem("popupSeen", "true");
 
-    if (navigator.vibrate) navigator.vibrate(80);
+    if (navigator.vibrate) navigator.vibrate(50);
     sound.play().catch(()=>{});
   };
 
@@ -54,15 +59,32 @@ document.addEventListener("DOMContentLoaded", function() {
 <title>Liquid Restriction</title>
 
 <style>
-/* 기존 스타일 유지 + 버튼 느낌 추가 */
-#popup button {
-  box-shadow: 0 5px 12px rgba(0,0,0,0.2);
-  transition: all 0.15s ease;
+body { font-family: Arial; margin:0; background:#f5f7fa; text-align:center; animation:fadeIn .5s ease;}
+@keyframes fadeIn { from{opacity:0;transform:translateY(10px);} to{opacity:1;transform:translateY(0);} }
+
+.lang-container { display:flex; gap:8px; padding:10px;}
+.lang-container a {
+flex:1; text-decoration:none; color:#333; padding:12px; border-radius:14px;
+font-size:13px; display:flex; flex-direction:column; align-items:center;
+box-shadow:0 4px 10px rgba(0,0,0,.08);
 }
-#popup button:active {
-  transform: scale(0.9);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+.kr{background:linear-gradient(#fff,#ffecec);}
+.en{background:linear-gradient(#fff,#eaf2ff);}
+.jp{background:linear-gradient(#fff,#fff0f5);}
+.cn{background:linear-gradient(#fff,#fff4e5);}
+
+.title { background:#2f5d8c; color:#fff; padding:15px; font-size:18px;}
+
+.button {
+display:block; background:#2f80ed; color:#fff; padding:18px; margin:15px 0;
+border-radius:18px; text-decoration:none; font-size:18px;
+box-shadow:0 6px 15px rgba(0,0,0,.15);
 }
+.button small{display:block;font-size:13px;margin-top:5px;}
+
+.sub-text { background:#f2e6c9; margin:-8px 20px 15px; padding:12px; border-radius:12px; font-size:13px;}
+
+.alert-box { background:#ff5c5c; color:#fff; margin:15px; padding:15px; border-radius:15px;}
 </style>
 </head>
 
