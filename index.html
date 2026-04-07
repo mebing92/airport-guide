@@ -5,23 +5,51 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <script>
-(function() {
-  const lang = navigator.language || navigator.userLanguage;
+document.addEventListener("DOMContentLoaded", function() {
 
-  if (location.pathname.includes("index_en") ||
-      location.pathname.includes("index_jp") ||
-      location.pathname.includes("index_cn")) {
-    return;
+  const sound = new Audio("beep.wav");
+
+  const messages = {
+    ko: "처리방법 선택 후\n보안검색요원에게 말씀해주세요",
+    en: "Please select a handling option\nand inform the security staff",
+    ja: "処理方法を選択後、\n保安係員にお知らせください",
+    zh: "请选择处理方式，\n并告知安检人员"
+  };
+
+  const userLang = navigator.language || "ko";
+  let langKey = "ko";
+
+  if (userLang.startsWith("en")) langKey = "en";
+  else if (userLang.startsWith("ja")) langKey = "ja";
+  else if (userLang.startsWith("zh")) langKey = "zh";
+
+  const popup = document.getElementById("popup");
+  const popupText = document.getElementById("popup-text");
+
+  if (!localStorage.getItem("popupSeen")) {
+    popupText.innerText = messages[langKey];
+
+    if (navigator.vibrate) {
+      navigator.vibrate(100);
+    }
+
+    sound.play().catch(() => {});
+  } else {
+    popup.style.display = "none";
   }
 
-  if (lang.startsWith("en")) {
-    location.replace("index_en.html");
-  } else if (lang.startsWith("ja")) {
-    location.replace("index_jp.html");
-  } else if (lang.startsWith("zh")) {
-    location.replace("index_cn.html");
-  }
-})();
+  window.closePopup = function() {
+    popup.style.display = "none";
+    localStorage.setItem("popupSeen", "true");
+
+    if (navigator.vibrate) {
+      navigator.vibrate(50);
+    }
+
+    sound.play().catch(() => {});
+  };
+
+});
 </script>  
   
 <title>액체류 반입 제한</title>
