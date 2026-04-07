@@ -1,117 +1,50 @@
-DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-
-  const sound = new Audio("beep.wav");
-
-  const messages = {
-    ko: "처리방법 선택 후\n보안검색요원에게 말씀해주세요",
-    en: "Please select a handling option\nand inform the security staff",
-    ja: "処理方法を選択後、\n保安係員にお知らせください",
-    zh: "请选择处理方式，\n并告知安检人员"
-  };
-
-  const buttons = {
-    ko: "확인",
-    en: "OK",
-    ja: "確認",
-    zh: "确认"
-  };
-
-  const userLang = navigator.language || "en";
-  let langKey = "en";
-
-  if (userLang.startsWith("ko")) langKey = "ko";
-  else if (userLang.startsWith("ja")) langKey = "ja";
-  else if (userLang.startsWith("zh")) langKey = "zh";
-
-  const popup = document.getElementById("popup");
-  const popupText = document.getElementById("popup-text");
-  const popupBtn = document.querySelector("#popup button");
-
-  if (popup && popupText) {
-
-  popupText.innerText = messages[langKey];
-
-  if (popupBtn) popupBtn.innerText = buttons[langKey];
-
-  if (navigator.vibrate) navigator.vibrate([120,50,120]);
-
-  sound.play().catch(()=>{});
-
-}
-
-window.closePopup = function() {
-
-  popup.style.display = "none";
-
-  if (navigator.vibrate) navigator.vibrate(80);
-
-  sound.play().catch(()=>{});
-
-};
-
-});
-</script>
-
 <title>Liquid Restriction</title>
 
 <style>
-body { font-family: Arial; margin:0; background:#f5f7fa; text-align:center; animation:fadeIn .5s ease;}
-@keyframes fadeIn { from{opacity:0;transform:translateY(10px);} to{opacity:1;transform:translateY(0);} }
+/* ⭐ 한국어와 완전 동일 */
+body { font-family: Arial; margin: 0; background: #f5f7fa; text-align: center; animation: fadeIn 0.5s ease;}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px);} to { opacity: 1; transform: translateY(0);} }
 
 .lang-container { display:flex; gap:8px; padding:10px;}
 .lang-container a {
-flex:1; text-decoration:none; color:#333; padding:12px; border-radius:14px;
-font-size:13px; display:flex; flex-direction:column; align-items:center;
-box-shadow:0 4px 10px rgba(0,0,0,.08);
+flex:1; text-decoration:none; color:#333; padding:12px; border-radius:14px; font-size:13px;
+display:flex; flex-direction:column; align-items:center; justify-content:center;
+box-shadow:0 4px 10px rgba(0,0,0,0.08);
 }
-.kr{background:linear-gradient(#fff,#ffecec);}
-.en{background:linear-gradient(#fff,#eaf2ff);}
-.jp{background:linear-gradient(#fff,#fff0f5);}
-.cn{background:linear-gradient(#fff,#fff4e5);}
+.lang-container a.kr { background: linear-gradient(#fff,#ffecec);}
+.lang-container a.en { background: linear-gradient(#fff,#eaf2ff);}
+.lang-container a.jp { background: linear-gradient(#fff,#fff0f5);}
+.lang-container a.cn { background: linear-gradient(#fff,#fff4e5);}
 
-.title { background:#2f5d8c; color:#fff; padding:15px; font-size:18px;}
+.title { background:#2f5d8c; color:white; padding:15px; font-size:18px;}
 
 .button {
-display:block; background:#2f80ed; color:#fff; padding:18px; margin:15px 0;
+display:block; background:#2f80ed; color:white; padding:18px; margin:15px 0;
 border-radius:18px; text-decoration:none; font-size:18px;
-box-shadow:0 6px 15px rgba(0,0,0,.15);
+box-shadow:0 6px 15px rgba(0,0,0,0.15);
 }
-.button small{display:block;font-size:13px;margin-top:5px;}
+
+.button small { display:block; font-size:13px; margin-top:5px;}
 
 .sub-text { background:#f2e6c9; margin:-8px 20px 15px; padding:12px; border-radius:12px; font-size:13px;}
 
-.alert-box { background:#ff5c5c; color:#fff; margin:15px; padding:15px; border-radius:15px;}
+.alert-box { background:#ff5c5c; color:white; margin:15px; padding:15px; border-radius:15px;}
 </style>
 </head>
 
 <body>
 
 <!-- 팝업 -->
-<div id="popup" style="
-position:fixed; top:0; left:0; width:100%; height:100%;
-background:rgba(0,0,0,0.5);
-display:flex; justify-content:center; align-items:center;
-z-index:9999;
-">
-  <div style="
-  background:white; padding:25px; border-radius:20px;
-  width:80%; max-width:320px; text-align:center;
-  ">
+<div id="popup" style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); display:flex; justify-content:center; align-items:center; z-index:9999;">
+  <div style="background:white; padding:25px; border-radius:20px; width:80%; max-width:320px; text-align:center;">
     <div id="popup-text" style="font-size:16px; margin-bottom:20px; white-space:pre-line;"></div>
-
-    <button onclick="closePopup()" style="
-    background:#2f80ed; color:white; border:none;
-    padding:12px 20px; border-radius:12px; font-size:15px;">
-      OK
-    </button>
-
+    <button onclick="closePopup()" style="background:#2f80ed; color:white; border:none; padding:12px 20px; border-radius:12px; font-size:15px;">OK</button>
   </div>
 </div>
 
@@ -149,8 +82,49 @@ z-index:9999;
 </div>
 
 <script>
-document.querySelectorAll('.button').forEach(btn=>{
-btn.addEventListener('click',()=>{if(navigator.vibrate){navigator.vibrate(30);}});
+document.addEventListener("DOMContentLoaded", function() {
+
+  const sound = new Audio("beep.wav");
+
+  const messages = {
+    ko: "처리방법 선택 후\n보안검색요원에게 말씀해주세요",
+    en: "Please select a handling option\nand inform the security staff",
+    ja: "処理方法を選択後、\n保安係員にお知らせください",
+    zh: "请选择处理方式，\n并告知安检人员"
+  };
+
+  const buttons = {
+    ko: "확인",
+    en: "OK",
+    ja: "確認",
+    zh: "确认"
+  };
+
+  const userLang = navigator.language || "en";
+  let langKey = "en";
+
+  if (userLang.startsWith("ko")) langKey = "ko";
+  else if (userLang.startsWith("ja")) langKey = "ja";
+  else if (userLang.startsWith("zh")) langKey = "zh";
+
+  const popup = document.getElementById("popup");
+  const popupText = document.getElementById("popup-text");
+  const popupBtn = document.querySelector("#popup button");
+
+  if (popup && popupText) {
+    popupText.innerText = messages[langKey];
+    if (popupBtn) popupBtn.innerText = buttons[langKey];
+
+    if (navigator.vibrate) navigator.vibrate([120,50,120]);
+    sound.play().catch(()=>{});
+  }
+
+  window.closePopup = function() {
+    popup.style.display = "none";
+    if (navigator.vibrate) navigator.vibrate(80);
+    sound.play().catch(()=>{});
+  };
+
 });
 </script>
 
