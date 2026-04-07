@@ -3,6 +3,49 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+  const sound = new Audio("beep.wav");
+
+  const messages = {
+    ko: "처리방법 선택 후\n보안검색요원에게 말씀해주세요",
+    en: "Please select a handling option\nand inform the security staff",
+    ja: "処理方法を選択後、\n保安係員にお知らせください",
+    zh: "请选择处理方式，\n并告知安检人员"
+  };
+
+  const userLang = navigator.language || "en";
+  let langKey = "en";
+
+  if (userLang.startsWith("ko")) langKey = "ko";
+  else if (userLang.startsWith("ja")) langKey = "ja";
+  else if (userLang.startsWith("zh")) langKey = "zh";
+
+  const popup = document.getElementById("popup");
+  const popupText = document.getElementById("popup-text");
+
+  if (!localStorage.getItem("popupSeen") && popup && popupText) {
+    popupText.innerText = messages[langKey];
+
+    if (navigator.vibrate) navigator.vibrate(100);
+    sound.play().catch(()=>{});
+  } else {
+    if (popup) popup.style.display = "none";
+  }
+
+  window.closePopup = function() {
+    popup.style.display = "none";
+    localStorage.setItem("popupSeen", "true");
+
+    if (navigator.vibrate) navigator.vibrate(50);
+    sound.play().catch(()=>{});
+  };
+
+});
+</script>
+
 <title>Liquid Restriction</title>
 
 <style>
@@ -13,13 +56,12 @@ body { font-family: Arial; margin:0; background:#f5f7fa; text-align:center; anim
 .lang-container a {
 flex:1; text-decoration:none; color:#333; padding:12px; border-radius:14px;
 font-size:13px; display:flex; flex-direction:column; align-items:center;
-box-shadow:0 4px 10px rgba(0,0,0,.08); transition:.2s;
+box-shadow:0 4px 10px rgba(0,0,0,.08);
 }
 .kr{background:linear-gradient(#fff,#ffecec);}
 .en{background:linear-gradient(#fff,#eaf2ff);}
 .jp{background:linear-gradient(#fff,#fff0f5);}
 .cn{background:linear-gradient(#fff,#fff4e5);}
-.lang-container a:active{transform:scale(.95);}
 
 .title { background:#2f5d8c; color:#fff; padding:15px; font-size:18px;}
 
@@ -27,13 +69,8 @@ box-shadow:0 4px 10px rgba(0,0,0,.08); transition:.2s;
 display:block; background:#2f80ed; color:#fff; padding:18px; margin:15px 0;
 border-radius:18px; text-decoration:none; font-size:18px;
 box-shadow:0 6px 15px rgba(0,0,0,.15);
-animation:float 2.5s ease-in-out infinite;
 }
 .button small{display:block;font-size:13px;margin-top:5px;}
-
-.button:active{transform:scale(.96); box-shadow:0 3px 8px rgba(0,0,0,.2);}
-
-@keyframes float {0%{transform:translateY(0);}50%{transform:translateY(-3px);}100%{transform:translateY(0);}}
 
 .sub-text { background:#f2e6c9; margin:-8px 20px 15px; padding:12px; border-radius:12px; font-size:13px;}
 
@@ -43,42 +80,21 @@ animation:float 2.5s ease-in-out infinite;
 
 <body>
 
-<div class="lang-container">
-<a href="index.html" class="kr">🇰🇷<br>한국어</a>
-<a href="index_en.html" class="en">🇺🇸<br>EN</a>
-<a href="index_jp.html" class="jp">🇯🇵<br>日本語</a>
-<a href="index_cn.html" class="cn">🇨🇳<br>中文</a>
-</div>
-
-<div class="title">🚫 Liquid Restriction</div>
-
-<a class="button" href="baggage_en.html">🧳 Checked baggage
-<small>→ Check in and board</small></a>
-<div class="sub-text">
-⏰ May not be available within 50 min before departure<br>
-👉 Ask security staff if urgent
-</div>
-
-<a class="button" href="bottle_en.html">🧴 Buy container
-<small>→ Transfer and carry onboard</small></a>
-<div class="sub-text">
-💧 Liquids over limit can be transferred into 100ml containers
-</div>
-
-<a class="button" href="storage_en.html">📦 Storage service
-<small>→ Store and depart</small></a>
-
-<div class="alert-box">
-🚨 Re-screening required if you exit<br>
-👉 Follow pink line<br>
-⚠️ Boarding may be denied
-</div>
-
-<script>
-document.querySelectorAll('.button').forEach(btn=>{
-btn.addEventListener('click',()=>{if(navigator.vibrate){navigator.vibrate(30);}});
-});
-</script>
-
-</body>
-</html>
+<!-- 팝업 -->
+<div id="popup" style="
+position:fixed; top:0; left:0; width:100%; height:100%;
+background:rgba(0,0,0,0.5);
+display:flex; justify-content:center; align-items:center;
+z-index:9999;
+">
+  <div style="
+  background:white; padding:25px; border-radius:20px;
+  width:80%; max-width:320px; text-align:center;
+  ">
+    <div id="popup-text" style="font-size:16px; margin-bottom:20px; white-space:pre-line;"></div>
+    <button onclick="closePopup()" style="
+    background:#2f80ed; color:white; border:none;
+    padding:12px 20px; border-radius:12px; font-size:15px;">
+      OK
+    </button>
+  </div
