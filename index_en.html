@@ -16,6 +16,14 @@ document.addEventListener("DOMContentLoaded", function() {
     zh: "请选择处理方式，\n并告知安检人员"
   };
 
+  // ✅ 버튼 다국어 추가
+  const buttons = {
+    ko: "확인",
+    en: "OK",
+    ja: "確認",
+    zh: "确认"
+  };
+
   const userLang = navigator.language || "en";
   let langKey = "en";
 
@@ -25,9 +33,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
   const popup = document.getElementById("popup");
   const popupText = document.getElementById("popup-text");
+  const popupBtn = document.querySelector("#popup button");
 
   if (!localStorage.getItem("popupSeen") && popup && popupText) {
     popupText.innerText = messages[langKey];
+
+    // ✅ 버튼 언어 변경
+    if (popupBtn) popupBtn.innerText = buttons[langKey];
 
     if (navigator.vibrate) navigator.vibrate(100);
     sound.play().catch(()=>{});
@@ -92,9 +104,13 @@ z-index:9999;
   width:80%; max-width:320px; text-align:center;
   ">
     <div id="popup-text" style="font-size:16px; margin-bottom:20px; white-space:pre-line;"></div>
+
+    <!-- ❗ 구조 그대로 유지, JS로만 변경 -->
     <button onclick="closePopup()" style="
     background:#2f80ed; color:white; border:none;
     padding:12px 20px; border-radius:12px; font-size:15px;">
       OK
     </button>
-  </div
+
+  </div>
+</div>
