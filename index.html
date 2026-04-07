@@ -16,6 +16,14 @@ document.addEventListener("DOMContentLoaded", function() {
     zh: "请选择处理方式，\n并告知安检人员"
   };
 
+  // ✅ 버튼 다국어 추가
+  const buttons = {
+    ko: "확인",
+    en: "OK",
+    ja: "確認",
+    zh: "确认"
+  };
+
   const userLang = navigator.language || "ko";
   let langKey = "ko";
 
@@ -25,9 +33,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
   const popup = document.getElementById("popup");
   const popupText = document.getElementById("popup-text");
+  const popupBtn = document.querySelector("#popup button");
 
   if (!localStorage.getItem("popupSeen") && popup && popupText) {
     popupText.innerText = messages[langKey];
+
+    // ✅ 버튼 언어 자동 변경
+    if (popupBtn) popupBtn.innerText = buttons[langKey];
 
     if (navigator.vibrate) {
       navigator.vibrate(100);
@@ -35,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     sound.play().catch(() => {});
   } else {
-    popup.style.display = "none";
+    if (popup) popup.style.display = "none";
   }
 
   window.closePopup = function() {
@@ -183,6 +195,7 @@ body {
 </head>
 
 <body>
+
 <!-- 팝업 -->
 <div id="popup" style="
   position: fixed;
@@ -227,6 +240,7 @@ body {
 
   </div>
 </div>
+
 <div class="lang-container">
   <a href="index.html" class="kr">🇰🇷<br>한국어</a>
   <a href="index_en.html" class="en">🇺🇸<br>EN</a>
