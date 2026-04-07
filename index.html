@@ -35,30 +35,24 @@ document.addEventListener("DOMContentLoaded", function() {
   const popupText = document.getElementById("popup-text");
   const popupBtn = document.querySelector("#popup button");
 
-  if (!localStorage.getItem("popupSeen") && popup && popupText) {
-    popupText.innerText = messages[langKey];
+  if (popup && popupText) {
 
-    // ✅ 버튼 언어 자동 변경
-    if (popupBtn) popupBtn.innerText = buttons[langKey];
+  popupText.innerText = messages[langKey];
 
-    if (navigator.vibrate) {
-      navigator.vibrate(100);
-    }
+  if (popupBtn) popupBtn.innerText = buttons[langKey];
 
-    sound.play().catch(() => {});
-  } else {
-    if (popup) popup.style.display = "none";
-  }
+  if (navigator.vibrate) navigator.vibrate([120,50,120]);
 
-  window.closePopup = function() {
-    popup.style.display = "none";
-    localStorage.setItem("popupSeen", "true");
+  sound.play().catch(()=>{});
+}
 
-    if (navigator.vibrate) {
-      navigator.vibrate(50);
-    }
+window.closePopup = function() {
+  popup.style.display = "none";
 
-    sound.play().catch(() => {});
+  if (navigator.vibrate) navigator.vibrate(80);
+
+  sound.play().catch(()=>{});
+};
   };
 
 });
