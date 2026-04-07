@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function() {
     zh: "请选择处理方式，\n并告知安检人员"
   };
 
-  // ✅ 버튼 다국어 추가
   const buttons = {
     ko: "확인",
     en: "OK",
@@ -38,7 +37,6 @@ document.addEventListener("DOMContentLoaded", function() {
   if (!localStorage.getItem("popupSeen") && popup && popupText) {
     popupText.innerText = messages[langKey];
 
-    // ✅ 버튼 언어 변경
     if (popupBtn) popupBtn.innerText = buttons[langKey];
 
     if (navigator.vibrate) navigator.vibrate(100);
@@ -105,7 +103,6 @@ z-index:9999;
   ">
     <div id="popup-text" style="font-size:16px; margin-bottom:20px; white-space:pre-line;"></div>
 
-    <!-- ❗ 구조 그대로 유지, JS로만 변경 -->
     <button onclick="closePopup()" style="
     background:#2f80ed; color:white; border:none;
     padding:12px 20px; border-radius:12px; font-size:15px;">
@@ -114,3 +111,45 @@ z-index:9999;
 
   </div>
 </div>
+
+<div class="lang-container">
+  <a href="index.html" class="kr">🇰🇷<br>한국어</a>
+  <a href="index_en.html" class="en">🇺🇸<br>EN</a>
+  <a href="index_jp.html" class="jp">🇯🇵<br>日本語</a>
+  <a href="index_cn.html" class="cn">🇨🇳<br>中文</a>
+</div>
+
+<div class="title">🚫 Liquid Restriction</div>
+
+<a class="button" href="baggage_en.html">🧳 Checked baggage
+<small>→ Check in and board</small></a>
+
+<div class="sub-text">
+⏰ May not be available within 50 min before departure<br>
+👉 Ask security staff if urgent
+</div>
+
+<a class="button" href="bottle_en.html">🧴 Buy container
+<small>→ Transfer and carry onboard</small></a>
+
+<div class="sub-text">
+💧 Liquids over limit can be transferred into 100ml containers
+</div>
+
+<a class="button" href="storage_en.html">📦 Storage service
+<small>→ Store and depart</small></a>
+
+<div class="alert-box">
+🚨 Re-screening required if you exit<br>
+👉 Follow pink line<br>
+⚠️ Boarding may be denied
+</div>
+
+<script>
+document.querySelectorAll('.button').forEach(btn=>{
+btn.addEventListener('click',()=>{if(navigator.vibrate){navigator.vibrate(30);}});
+});
+</script>
+
+</body>
+</html>
