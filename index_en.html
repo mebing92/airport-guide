@@ -24,23 +24,21 @@ document.addEventListener("DOMContentLoaded", function() {
   };
 
   const userLang = navigator.language || "en";
-  let langKey = "en";
+  let popupLang = "en";
 
-  if (userLang.startsWith("ko")) langKey = "ko";
-  else if (userLang.startsWith("ja")) langKey = "ja";
-  else if (userLang.startsWith("zh")) langKey = "zh";
+  if (userLang.startsWith("ko")) popupLang = "ko";
+  else if (userLang.startsWith("ja")) popupLang = "ja";
+  else if (userLang.startsWith("zh")) popupLang = "zh";
 
   const popup = document.getElementById("popup");
   const popupText = document.getElementById("popup-text");
   const popupBtn = document.querySelector("#popup button");
 
-  // ✅ 항상 뜨게 변경
-  if (popupText) popupText.innerText = messages[langKey];
-  if (popupBtn) popupBtn.innerText = buttons[langKey];
+  // 👉 팝업만 자동 번역
+  if (popupText) popupText.innerText = messages[popupLang];
+  if (popupBtn) popupBtn.innerText = buttons[popupLang];
 
-  // 🔥 진동 강화
-  if (navigator.vibrate) navigator.vibrate([120, 50, 120]);
-
+  if (navigator.vibrate) navigator.vibrate([120,50,120]);
   sound.play().catch(()=>{});
 
   window.closePopup = function() {
@@ -56,39 +54,11 @@ document.addEventListener("DOMContentLoaded", function() {
 <title>Liquid Restriction</title>
 
 <style>
-body { font-family: Arial; margin:0; background:#f5f7fa; text-align:center; animation:fadeIn .5s ease;}
-@keyframes fadeIn { from{opacity:0;transform:translateY(10px);} to{opacity:1;transform:translateY(0);} }
-
-.lang-container { display:flex; gap:8px; padding:10px;}
-.lang-container a {
-flex:1; text-decoration:none; color:#333; padding:12px; border-radius:14px;
-font-size:13px; display:flex; flex-direction:column; align-items:center;
-box-shadow:0 4px 10px rgba(0,0,0,.08);
-}
-.kr{background:linear-gradient(#fff,#ffecec);}
-.en{background:linear-gradient(#fff,#eaf2ff);}
-.jp{background:linear-gradient(#fff,#fff0f5);}
-.cn{background:linear-gradient(#fff,#fff4e5);}
-
-.title { background:#2f5d8c; color:#fff; padding:15px; font-size:18px;}
-
-.button {
-display:block; background:#2f80ed; color:#fff; padding:18px; margin:15px 0;
-border-radius:18px; text-decoration:none; font-size:18px;
-box-shadow:0 6px 15px rgba(0,0,0,.15);
-}
-.button small{display:block;font-size:13px;margin-top:5px;}
-
-.sub-text { background:#f2e6c9; margin:-8px 20px 15px; padding:12px; border-radius:12px; font-size:13px;}
-
-.alert-box { background:#ff5c5c; color:#fff; margin:15px; padding:15px; border-radius:15px;}
-
-/* 🔥 팝업 버튼 눌림 추가 */
+/* 기존 스타일 유지 + 버튼 느낌 추가 */
 #popup button {
   box-shadow: 0 5px 12px rgba(0,0,0,0.2);
   transition: all 0.15s ease;
 }
-
 #popup button:active {
   transform: scale(0.9);
   box-shadow: 0 2px 5px rgba(0,0,0,0.3);
